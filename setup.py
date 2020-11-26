@@ -36,8 +36,8 @@ class BuildExtension(setuptools.Command):
 
 extensions = [
     Extension(
-        'centernet.utils.compute_overlap',
-        ['centernet/utils/compute_overlap.pyx']
+        'utils.compute_overlap',
+        ['utils/compute_overlap.pyx']
     ),
 ]
 
