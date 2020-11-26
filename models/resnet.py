@@ -7,7 +7,7 @@ from keras.initializers import normal, constant, zeros
 from keras.regularizers import l2
 import keras.backend as K
 import tensorflow as tf
-
+import keras
 from losses import loss
 
 
@@ -128,7 +128,7 @@ def centernet(num_classes, backbone='resnet50', input_size=512, max_objects=100,
     elif backbone == 'resnet34':
         resnet = resnet_models.ResNet34(image_input, include_top=False, freeze_bn=freeze_bn)
     elif backbone == 'resnet50':
-        resnet = resnet_models.ResNet50(image_input, include_top=False, freeze_bn=freeze_bn)
+        resnet = keras.applications.ResNet50(input_tensor=image_input,weights='imagenet', include_top=False)
         # resnet = ResNet50(input_tensor=image_input, include_top=False)
     elif backbone == 'resnet101':
         resnet = resnet_models.ResNet101(image_input, include_top=False, freeze_bn=freeze_bn)
