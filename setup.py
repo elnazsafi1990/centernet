@@ -36,17 +36,17 @@ class BuildExtension(setuptools.Command):
 
 extensions = [
     Extension(
-        'keras_retinanet.utils.compute_overlap',
-        ['keras_retinanet/utils/compute_overlap.pyx']
+        'utils.compute_overlap',
+        ['utils/compute_overlap.pyx']
     ),
 ]
 
 
 setuptools.setup(
-    name             = 'keras-retinanet',
+    name             = 'centernet',
     version          = '0.5.1',
     description      = 'Keras implementation of RetinaNet object detection.',
-    url              = 'https://github.com/fizyr/keras-retinanet',
+    url              = 'https://github.com/mhrah7495/centernet',
     author           = 'Hans Gaiser',
     author_email     = 'h.gaiser@fizyr.com',
     maintainer       = 'Hans Gaiser',
@@ -56,10 +56,7 @@ setuptools.setup(
     install_requires = ['keras', 'keras-resnet==0.1.0', 'six', 'scipy', 'cython', 'Pillow', 'opencv-python', 'progressbar2'],
     entry_points     = {
         'console_scripts': [
-            'retinanet-train=keras_retinanet.bin.train:main',
-            'retinanet-evaluate=keras_retinanet.bin.evaluate:main',
-            'retinanet-debug=keras_retinanet.bin.debug:main',
-            'retinanet-convert-model=keras_retinanet.bin.convert_model:main',
+            'retinanet-train=train.train:main',
         ],
     },
     ext_modules    = extensions,
