@@ -36,8 +36,8 @@ class BuildExtension(setuptools.Command):
 
 extensions = [
     Extension(
-        'keras_retinanet.utils.compute_overlap',
-        ['keras_retinanet/utils/compute_overlap.pyx']
+        'centernet.utils.compute_overlap',
+        ['centernet/utils/compute_overlap.pyx']
     ),
 ]
 
