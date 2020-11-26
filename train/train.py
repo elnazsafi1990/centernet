@@ -259,6 +259,7 @@ def parse_args(args):
     parser.add_argument('--freeze-backbone', help='Freeze training of backbone layers.', action='store_true')
 
     parser.add_argument('--batch-size', help='Size of the batches.', default=1, type=int)
+    parser.add_argument('--lr', help='learning rate', default=1e-3, type=float)
     parser.add_argument('--gpu', help='Id of the GPU to use (as reported by nvidia-smi).')
     parser.add_argument('--num_gpus', help='Number of GPUs to use for parallel processing.', type=int, default=0)
     parser.add_argument('--multi-gpu-force', help='Extra flag needed to enable (experimental) multi-gpu support.',
@@ -319,7 +320,7 @@ def main(args=None):
             model.layers[i].trainable = False
 
     # compile model
-    model.compile(optimizer=Adam(lr=1e-3), loss={'centernet_loss': lambda y_true, y_pred: y_pred})
+    model.compile(optimizer=Adam(lr=args.lr), loss={'centernet_loss': lambda y_true, y_pred: y_pred})
     # model.compile(optimizer=SGD(lr=1e-5, momentum=0.9, nesterov=True, decay=1e-5),
     #               loss={'centernet_loss': lambda y_true, y_pred: y_pred})
 
